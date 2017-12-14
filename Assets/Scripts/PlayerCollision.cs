@@ -15,6 +15,8 @@ public class PlayerCollision : MonoBehaviour {
 		{
 			Physics.gravity = new Vector3 (0, -10, 0);
 			movement.isOnWall = true;
+            movement.wallSide = collisionInfo.gameObject.tag;
+            print(movement.wallSide);
 		}
 		// Check if the object you collided with has a tag called "Obstacle".
 		if (collisionInfo.collider.tag == "Obstacle")

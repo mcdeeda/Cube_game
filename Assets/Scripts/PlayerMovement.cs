@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float jumpheight = 1000f; //jump height variable
 	public bool isGrounded = true;
 	public bool isOnWall = false;
+    public string wallSide = "";
 	public float walljumpwidth = 10f;
 	public float walljumpheight = 10f;
 	public float walljumpforce = 40f;
@@ -25,12 +26,22 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			// Add a force to the right
 			rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            if(isOnWall == true && isGrounded == false && wallSide == "Left")
+            {
+                print("rightjumping");
+                rb.AddForce(walljumpwidth * Time.deltaTime, walljumpheight * Time.deltaTime, walljumpforce * Time.deltaTime, ForceMode.VelocityChange);
+            }
 		}
 
 			if (Input.GetKey("a") || Input.GetKey("left"))  // If the player is pressing the "a" or left arrow key
 		{
 			// Add a force to the left
 			rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            if(isOnWall == true && isGrounded == false && wallSide == "Right")
+            {
+                print("rightjumping");
+                rb.AddForce(-walljumpwidth * Time.deltaTime, walljumpheight * Time.deltaTime, walljumpforce * Time.deltaTime, ForceMode.VelocityChange);
+            }
 		}
 
 		if (rb.position.y < -1f)
@@ -42,10 +53,7 @@ public class PlayerMovement : MonoBehaviour {
 			isGrounded = false;
 			rb.AddForce (0, jumpheight * Time.deltaTime, 0, ForceMode.VelocityChange);
 		}
-		if (Input.GetKeyDown ("a") || Input.GetKeyDown ("left") || Input.GetKeyDown("d") || Input.GetKeyDown ("right") && isOnWall == true) 
-		{
-			rb.AddForce (-walljumpforce, walljumpheight, walljumpforce, ForceMode.VelocityChange);
-		}
+        
 	}
 }
 	
