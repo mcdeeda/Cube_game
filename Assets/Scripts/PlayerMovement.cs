@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			FindObjectOfType<GameManager>().EndGame();
 		}
-		if (Input.GetKeyDown ("w") || Input.GetKeyDown ("up") && isGrounded == true) 
+		if ((Input.GetKeyDown ("w") || Input.GetKeyDown ("up") || Input.GetKeyDown(KeyCode.Space)) && isGrounded == true) 
 		{
 			isGrounded = false;
 			rb.AddForce (0, jumpheight * Time.deltaTime, 0, ForceMode.VelocityChange);
