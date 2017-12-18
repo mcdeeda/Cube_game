@@ -247,6 +247,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90.28
       objectReference: {fileID: 0}
+    - target: {fileID: 114842211378620554, guid: c86df17c13775e94f8f7b33b5bab4be2,
+        type: 2}
+      propertyPath: particledrag
+      value: 
+      objectReference: {fileID: 1185201744}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86df17c13775e94f8f7b33b5bab4be2, type: 2}
   m_IsPrefabParent: 0
@@ -1274,7 +1279,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1865560204
+  randomSeed: -104922059
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1834,7 +1839,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 105.29
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2

@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour {
 	// using it to mess with physics.
 	void FixedUpdate ()
 	{
-		print (isOnWall);
 		// Add a forward force
 		rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
