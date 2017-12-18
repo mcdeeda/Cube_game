@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
@@ -19,10 +20,18 @@ public class GameManager : MonoBehaviour {
 		if (gameHasEnded == false)
 		{
 			gameHasEnded = true;
-			Debug.Log("GAME OVER");
-			Invoke("Restart", restartDelay);
+			//Debug.Log("GAME OVER");
+			//Invoke("Restart", restartDelay);
+			StartCoroutine(CollisionDelay());
 		}
 	}
+
+	IEnumerator CollisionDelay(){
+		Debug.Log ("GAME OVER");
+		yield return new WaitForSeconds (1);
+		Restart ();
+	}
+		
 
 	void Restart ()
 	{
