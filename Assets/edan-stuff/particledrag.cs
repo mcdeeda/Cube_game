@@ -32,4 +32,12 @@ public class particledrag : MonoBehaviour {
             particles.Stop();
         }
     }
+    public void explodeCube()
+    {
+        var sh = particles.shape;
+        sh.position = new Vector3(0, 0, 0);
+        var em = particles.emission;
+        em.rateOverTime = 10000;
+        particles.Play();
+    }
 }
